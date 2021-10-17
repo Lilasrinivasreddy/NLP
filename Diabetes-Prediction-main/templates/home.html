@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    h3 {text-align: center;}
+  
+    </style>
+</head>
+
+<body>
+        
+   
+    <nav class="navbar navbar-light" style="background-color: #98dadf;">
+        <a class="navbar-brand" href="#">
+          <h2><b>DIABETES PREDICTIONS</b></h2>
+        </a>
+      </nav>
+
+   <div>   
+    <div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+      
+                <div class="card">
+                    <h5 class="text-center mb-4">Answer all questions</h5>
+                    <form class="form-card" action="{{ url_for('predict')}}"method="post"">
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Pregnancies<span class="text-danger"> *</span></label> <input type="text" id="Pregnancies" name="Pregnancies" placeholder="Pregnancies" onblur="validate(1)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Glucose<span class="text-danger"> *</span></label> <input type="text" id="Glucose" name="Glucose" placeholder="Glucose" onblur="validate(2)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Blood Pressure<span class="text-danger"> *</span></label> <input type="text" id="BloodPressure" name="BloodPressure" placeholder="Blood Pressure" onblur="validate(2)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Skin Thickness<span class="text-danger"> *</span></label> <input type="text" id="SkinThickness" name="SkinThickness" placeholder="Skin Thickness" onblur="validate(2)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Insulin<span class="text-danger"> *</span></label> <input type="text" id="Insulin" name="Insulin" placeholder="Insulin" onblur="validate(2)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">BMI<span class="text-danger"> *</span></label> <input type="text" id="BMI" name="BMI" placeholder="BMI" onblur="validate(2)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Diabetes Pedigree Function<span class="text-danger"> *</span></label> <input type="text" id="DiabetesPedigreeFunction" name="Diabetes Pedigree Function" placeholder="Diabetes Pedigree Function" onblur="validate(2)"> </div>
+                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Age<span class="text-danger"> *</span></label> <input type="text" id="Age" name="Age" placeholder="Age" onblur="validate(2)"> </div>
+
+                        </div>
+                    
+                    
+                                <button type="submit" class="btn-block btn-danger">Predict</button> 
+                         
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3><marquee>{{prediction_text}}</marquee><b></b></h3>
+   <br>
+   <h5 class="text-center mb-4"><b>Created By Anil L</b></h5>
+   <br>
+  
+  
+ </div>
+
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+ <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ 
+ <script src="https://manuel.pinto.dev" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
